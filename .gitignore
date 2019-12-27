@@ -1,3 +1,5 @@
+*.jar
+*.bat
 *.iml
 .gradle
 /local.properties
