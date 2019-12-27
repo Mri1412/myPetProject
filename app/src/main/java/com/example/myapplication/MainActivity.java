@@ -3,6 +3,10 @@ package com.example.myapplication;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.myapplication.logic.exercise.Exercise;
+import com.example.myapplication.logic.exercise.ExerciseImpl;
+import com.example.myapplication.logic.workout.Workout;
+import com.example.myapplication.logic.workout.WorkoutImpl;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -27,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action [Marianne was here]", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "test", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
