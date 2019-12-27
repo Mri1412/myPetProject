@@ -7,18 +7,15 @@ import java.util.ArrayList; // import the ArrayList class
 public class WorkoutImpl implements Workout {
 
     /* Properties */
-    public ArrayList<ExerciseImpl> exercises;
+    public ArrayList<Exercise> exercises;
     private int currentExerciseIndex;
 
 
     /* Constructor */
     public WorkoutImpl() {
-        ArrayList<ExerciseImpl> newList = new ArrayList<ExerciseImpl>();
-        ExerciseImpl newEx = new ExerciseImpl("Push up");
-        newList.add(newEx);
-        newEx = new ExerciseImpl("Burpees");
-        newList.add(newEx);
-        exercises = newList;
+        exercises.clear();
+        exercises.add(new ExerciseImpl("Push up"));
+        exercises.add(new ExerciseImpl("Burpees"));
         currentExerciseIndex = 0;
     }
 
