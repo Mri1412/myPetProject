@@ -7,4 +7,5 @@ public interface Workout {
     void startWorkout();
     void finishWorkout();
     boolean hasNextExercise();
+    Workout addExercise(Exercise exercise);
 }

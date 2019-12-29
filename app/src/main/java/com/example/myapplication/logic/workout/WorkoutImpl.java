@@ -7,16 +7,16 @@ import java.util.ArrayList; // import the ArrayList class
 public class WorkoutImpl implements Workout {
 
     /* Properties */
-    public ArrayList<Exercise> exercises;
+    public ArrayList<Exercise> exercises = new ArrayList<>();
     private int currentExerciseIndex;
 
 
     /* Constructor */
     public WorkoutImpl() {
-        exercises.clear();
-        exercises.add(new ExerciseImpl("Push up"));
-        exercises.add(new ExerciseImpl("Burpees"));
         currentExerciseIndex = 0;
+
+        // TEMP hardcoded constructor
+        this.addExercise(new ExerciseImpl("Push Up")).addExercise(new ExerciseImpl("Burpee"));
     }
 
     /* Interface methods */
@@ -57,5 +57,11 @@ public class WorkoutImpl implements Workout {
         } else {
             return true;
         }
+    }
+
+    @Override
+    public Workout addExercise(Exercise exercise) {
+        exercises.add(exercise);
+        return this;
     }
 }

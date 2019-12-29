@@ -6,9 +6,6 @@ public class ExerciseImpl implements Exercise {
     String exerciseName;
 
     //Constructor
-    public ExerciseImpl(){
-    }
-
     public ExerciseImpl(String name){
         exerciseName = name;
     }
