@@ -14,9 +14,6 @@ public class WorkoutImpl implements Workout {
     /* Constructor */
     public WorkoutImpl() {
         currentExerciseIndex = 0;
-
-        // TEMP hardcoded constructor
-        this.addExercise(new ExerciseImpl("Push Up")).addExercise(new ExerciseImpl("Burpee"));
     }
 
     /* Interface methods */

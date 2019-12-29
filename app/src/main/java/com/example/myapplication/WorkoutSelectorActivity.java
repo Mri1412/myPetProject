@@ -26,29 +26,23 @@ public class WorkoutSelectorActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbarWorkoutSelector);
         setSupportActionBar(toolbar);
 
-        //TEMP hardcoding of list (does nothing yet)
-        final Workout workout1 = new WorkoutImpl();
-        workout1.addExercise(new ExerciseImpl("Push Up")).addExercise(new ExerciseImpl("Burpee"));
-        workouts.add(workout1);
-
-        final Workout workout2 = new WorkoutImpl();
-        workout2.addExercise(new ExerciseImpl("Sit up")).addExercise(new ExerciseImpl("Jumping Jack")).addExercise(new ExerciseImpl("Squat"));
-        workouts.add(workout2);
+        // Workout definition is temporarily stored in WorkoutActivity
 
         //create buttons etc. from workouts
-        onClickWorkoutButton(R.id.workoutButton1, workout1);
+        onClickWorkoutButton(R.id.workoutButton1, 0);
 
-        onClickWorkoutButton(R.id.workoutButton2, workout2);
+        onClickWorkoutButton(R.id.workoutButton2, 1);
 
 
     }
 
-    private void onClickWorkoutButton(int buttonId, final Workout workout) {
+    private void onClickWorkoutButton(int buttonId, final int workoutId) {
         Button button = findViewById(buttonId);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(WorkoutSelectorActivity.this, WorkoutActivity.class);
+                intent.putExtra("workoutId", workoutId);
                 startActivity(intent);
             }
         });

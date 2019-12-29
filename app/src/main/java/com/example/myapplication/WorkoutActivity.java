@@ -10,16 +10,13 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.myapplication.logic.exercise.Exercise;
+import com.example.myapplication.logic.exercise.ExerciseImpl;
 import com.example.myapplication.logic.workout.Workout;
 import com.example.myapplication.logic.workout.WorkoutImpl;
 
 public class WorkoutActivity extends AppCompatActivity {
 
-    private Workout workout;
-
-/*    public void setWorkout(Workout workout) {
-        this.workout = workout;
-    }*/
+    private Workout workout = new WorkoutImpl();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,17 +25,13 @@ public class WorkoutActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbarWorkout);
         setSupportActionBar(toolbar);
 
+        // Set workout from workout selector
+        Intent intent = getIntent();
+        int workoutId = intent.getIntExtra("workoutId", 0);
+        setWorkoutFromSelector(workoutId);
 
-
-        //Intent intent = getIntent();
-        //Workout newWorkout = intent.getParcelableExtra("workout");
-        //this.setWorkout(newWorkout);
-
-        workout = new WorkoutImpl();
         workout.startWorkout();
-
         showNewExercise();
-
 
         ConstraintLayout screen = findViewById(R.id.workout_screen);
         screen.setOnClickListener(new View.OnClickListener() {
@@ -64,5 +57,21 @@ public class WorkoutActivity extends AppCompatActivity {
     private void showFinishScreen() {
         TextView textName = findViewById(R.id.workoutContentText);
         textName.setText("VICTORY!");
+    }
+
+    private void setWorkoutFromSelector(int workoutId) {
+        System.out.println("workoud id:");
+        System.out.println(workoutId);
+        switch (workoutId) {
+            case 0:
+                this.workout.addExercise(new ExerciseImpl("Push Up")).addExercise(new ExerciseImpl("Burpee"));
+                break;
+            case 1:
+                this.workout.addExercise(new ExerciseImpl("Sit up")).addExercise(new ExerciseImpl("Jumping Jack")).addExercise(new ExerciseImpl("Squat"));
+                break;
+            default:
+                throw new RuntimeException("Unknown workout selected");
+        }
+
     }
 }
