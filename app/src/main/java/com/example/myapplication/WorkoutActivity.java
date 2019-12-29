@@ -16,7 +16,7 @@ import com.example.myapplication.logic.workout.WorkoutImpl;
 
 public class WorkoutActivity extends AppCompatActivity {
 
-    private Workout workout = new WorkoutImpl();
+    private Workout workout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +28,10 @@ public class WorkoutActivity extends AppCompatActivity {
         // Set workout from workout selector
         Intent intent = getIntent();
         int workoutId = intent.getIntExtra("workoutId", 0);
-        setWorkoutFromSelector(workoutId);
+
+        // TEMP get workout from workout selector activity
+        WorkoutSelectorActivity workoutList = new WorkoutSelectorActivity();
+        workout = workoutList.getWorkoutFromSelector(workoutId);
 
         workout.startWorkout();
         showNewExercise();
@@ -59,19 +62,5 @@ public class WorkoutActivity extends AppCompatActivity {
         textName.setText("VICTORY!");
     }
 
-    private void setWorkoutFromSelector(int workoutId) {
-        System.out.println("workoud id:");
-        System.out.println(workoutId);
-        switch (workoutId) {
-            case 0:
-                this.workout.addExercise(new ExerciseImpl("Push Up")).addExercise(new ExerciseImpl("Burpee"));
-                break;
-            case 1:
-                this.workout.addExercise(new ExerciseImpl("Sit up")).addExercise(new ExerciseImpl("Jumping Jack")).addExercise(new ExerciseImpl("Squat"));
-                break;
-            default:
-                throw new RuntimeException("Unknown workout selected");
-        }
 
-    }
 }
