@@ -49,7 +49,7 @@ public class WorkoutSelectorActivity extends AppCompatActivity {
         switch (workoutId) {
             case 0:
                 Workout workout1 = new WorkoutImpl("Anton");
-                workout1.addExercise(new ExerciseImpl("Push Up")).addExercise(new ExerciseImpl("Burpee")).addExercise(new ExerciseImpl("Plank"));
+                workout1.addExercise(new ExerciseImpl("Push Up")).addExercise(new ExerciseImpl("Burpee")).addExercise(new ExerciseImpl("Plank1")).addExercise(new ExerciseImpl("Plank2")).addExercise(new ExerciseImpl("Plank3")).addExercise(new ExerciseImpl("Plank4")).addExercise(new ExerciseImpl("Plank5")).addExercise(new ExerciseImpl("Plank6")).addExercise(new ExerciseImpl("Plank7"));
                 return workout1;
             case 1:
                 Workout workout2 = new WorkoutImpl("Marianne");

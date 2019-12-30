@@ -34,7 +34,7 @@ public class WorkoutOverviewActivity extends AppCompatActivity {
         //Set the exercise string
         StringBuilder exerciseContent = new StringBuilder();
         for (String exerciseName: workout.getExerciseNames()) {
-            exerciseContent.append(exerciseName + "\n");
+            exerciseContent.append(exerciseName + "\n" + "\n");
         }
         TextView exerciseString = findViewById(R.id.exerciseString);
         exerciseString.setText(exerciseContent);
