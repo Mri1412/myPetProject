@@ -6,4 +6,5 @@
     <string name="workout_button_2">Workout Marianne</string>
     <string name="start_workout_button">Start</string>
     <string name="welcome_text">Welcome to Anton and Marianne\'s super awesome workout app!</string>
+    <string name="workout_timer">%d:%02d</string>
 </resources>
