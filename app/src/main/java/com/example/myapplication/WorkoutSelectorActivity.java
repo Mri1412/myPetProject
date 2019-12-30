@@ -2,7 +2,6 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 
@@ -17,8 +16,6 @@ import java.util.ArrayList;
 
 public class WorkoutSelectorActivity extends AppCompatActivity {
 
-    private ArrayList<Workout> workouts = new ArrayList<>();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,10 +25,7 @@ public class WorkoutSelectorActivity extends AppCompatActivity {
 
         //create buttons etc. from workouts
         onClickWorkoutButton(R.id.workoutButton1, 0);
-
         onClickWorkoutButton(R.id.workoutButton2, 1);
-
-
     }
 
     private void onClickWorkoutButton(int buttonId, final int workoutId) {
@@ -55,7 +49,7 @@ public class WorkoutSelectorActivity extends AppCompatActivity {
         switch (workoutId) {
             case 0:
                 Workout workout1 = new WorkoutImpl("Anton");
-                workout1.addExercise(new ExerciseImpl("Push Up")).addExercise(new ExerciseImpl("Burpee")).addExercise(new ExerciseImpl("Plank"));
+                workout1.addExercise(new ExerciseImpl("Push Up")).addExercise(new ExerciseImpl("Burpee")).addExercise(new ExerciseImpl("Plank1")).addExercise(new ExerciseImpl("Plank2")).addExercise(new ExerciseImpl("Plank3")).addExercise(new ExerciseImpl("Plank4")).addExercise(new ExerciseImpl("Plank5")).addExercise(new ExerciseImpl("Plank6")).addExercise(new ExerciseImpl("Plank7"));
                 return workout1;
             case 1:
                 Workout workout2 = new WorkoutImpl("Marianne");
@@ -64,6 +58,8 @@ public class WorkoutSelectorActivity extends AppCompatActivity {
             default:
                 throw new RuntimeException("Unknown workout selected");
         }
-
     }
+
+
+
 }

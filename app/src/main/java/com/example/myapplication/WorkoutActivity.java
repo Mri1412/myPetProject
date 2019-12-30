@@ -11,9 +11,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.myapplication.logic.exercise.Exercise;
-import com.example.myapplication.logic.exercise.ExerciseImpl;
 import com.example.myapplication.logic.workout.Workout;
-import com.example.myapplication.logic.workout.WorkoutImpl;
 
 import java.util.Locale;
 import java.util.concurrent.ExecutorService;
