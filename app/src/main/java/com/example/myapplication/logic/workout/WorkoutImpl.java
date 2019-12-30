@@ -1,7 +1,6 @@
 package com.example.myapplication.logic.workout;
 
 import com.example.myapplication.logic.exercise.Exercise;
-import com.example.myapplication.logic.exercise.ExerciseImpl;
 import java.util.ArrayList; // import the ArrayList class
 import java.util.List;
 
@@ -20,7 +19,6 @@ public class WorkoutImpl implements Workout {
     }
 
     /* Interface methods */
-
     @Override
     public Exercise goToNextExercise() {
         if ( this.hasNextExercise() ) {

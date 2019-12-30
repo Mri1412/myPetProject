@@ -9,9 +9,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.example.myapplication.logic.exercise.Exercise;
 import com.example.myapplication.logic.workout.Workout;
-import com.example.myapplication.logic.workout.WorkoutImpl;
 
 public class WorkoutOverviewActivity extends AppCompatActivity {
 

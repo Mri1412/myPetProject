@@ -10,9 +10,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.myapplication.logic.exercise.Exercise;
-import com.example.myapplication.logic.exercise.ExerciseImpl;
 import com.example.myapplication.logic.workout.Workout;
-import com.example.myapplication.logic.workout.WorkoutImpl;
 
 public class WorkoutActivity extends AppCompatActivity {
 
