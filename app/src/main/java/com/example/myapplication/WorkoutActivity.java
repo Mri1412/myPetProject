@@ -13,10 +13,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import com.example.myapplication.logic.exercise.Exercise;
 import com.example.myapplication.logic.workout.Workout;
 
-import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadPoolExecutor;
 
 public class WorkoutActivity extends AppCompatActivity {
 
@@ -31,10 +29,6 @@ public class WorkoutActivity extends AppCompatActivity {
         setContentView(R.layout.activity_workout);
         Toolbar toolbar = findViewById(R.id.toolbarWorkout);
         setSupportActionBar(toolbar);
-
-        // Set workout from workout selector
-        Intent intent = getIntent();
-        int workoutId = intent.getIntExtra("workoutId", 0);
 
         //get workout from arguments
         workout = getIntent().getParcelableExtra("Workout");
@@ -63,7 +57,7 @@ public class WorkoutActivity extends AppCompatActivity {
     private void showNewExercise() {
         Exercise exercise = workout.getCurrentExercise();
         TextView exerciseName = findViewById(R.id.workoutContentText);
-        exerciseName.setText(exercise.getName());
+        exerciseName.setText(exercise.getExerciseDescription());
     }
 
     private void showFinishScreen() {

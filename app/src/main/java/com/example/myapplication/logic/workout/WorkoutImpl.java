@@ -71,12 +71,12 @@ public class WorkoutImpl implements Workout {
     }
 
     @Override
-    public List<String> getExerciseNames() {
-        List<String> exerciseNames = new ArrayList<>();
+    public List<String> getExerciseDescriptions() {
+        List<String> exerciseDescriptions = new ArrayList<>();
         for(Exercise exercise: exercises) {
-            exerciseNames.add(exercise.getName());
+            exerciseDescriptions.add(exercise.getExerciseDescription());
         }
-        return exerciseNames;
+        return exerciseDescriptions;
     }
 
     // -----------------------------------------------

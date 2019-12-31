@@ -13,5 +13,5 @@ public interface Workout extends Parcelable {
     boolean hasNextExercise();
     Workout addExercise(Exercise exercise);
     String getWorkoutName();
-    List<String> getExerciseNames();
+    List<String> getExerciseDescriptions();
 }

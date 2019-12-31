@@ -20,10 +20,6 @@ public class WorkoutOverviewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout_overview);
 
-        // get workout id
-        Intent intent = getIntent();
-        final int workoutId = intent.getIntExtra("workoutId", 0);
-
         // get workout from arguments
         workout = getIntent().getParcelableExtra("Workout");
         String workoutName = workout.getWorkoutName();
@@ -35,8 +31,8 @@ public class WorkoutOverviewActivity extends AppCompatActivity {
 
         //Set the exercise string
         StringBuilder exerciseContent = new StringBuilder();
-        for (String exerciseName: workout.getExerciseNames()) {
-            exerciseContent.append(exerciseName + "\n" + "\n");
+        for (String exerciseDescription: workout.getExerciseDescriptions()) {
+            exerciseContent.append(exerciseDescription + "\n" + "\n");
         }
         TextView exerciseString = findViewById(R.id.exerciseString);
         exerciseString.setText(exerciseContent);
