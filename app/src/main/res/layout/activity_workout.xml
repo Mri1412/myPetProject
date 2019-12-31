@@ -36,9 +36,26 @@
             app:layout_constraintVertical_bias="0.3" />
 
         <TextView
+            android:id="@+id/workoutTimeRemainingText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="50dp"
+            android:gravity="center"
+            android:text="@string/exercise_timer"
+            android:textSize="30sp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@id/timerText"
+            app:layout_constraintEnd_toEndOf="@id/workoutContentText"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/workoutContentText"
+            app:layout_constraintTop_toTopOf="@id/workoutContentText"
+            app:layout_constraintVertical_bias="0.61" />
+
+        <TextView
             android:id="@+id/timerText"
-            android:layout_width="190dp"
-            android:layout_height="64dp"
+            android:layout_width="246dp"
+            android:layout_height="114dp"
             android:layout_marginStart="176dp"
             android:layout_marginLeft="176dp"
             android:layout_marginTop="147dp"
@@ -51,6 +68,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/workoutContentText" />
+            app:layout_constraintTop_toBottomOf="@+id/workoutContentText"
+            app:layout_constraintVertical_bias="0.0"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

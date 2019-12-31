@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.controllers;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.myapplication.R;
 import com.example.myapplication.logic.workout.Workout;
 
 public class WorkoutOverviewActivity extends AppCompatActivity {

@@ -6,5 +6,7 @@ public interface Exercise extends Parcelable {
 
     String getName();
     String getExerciseDescription();
+    boolean hasTimer();
+    int getTimeRemainingInSeconds();
 }
 

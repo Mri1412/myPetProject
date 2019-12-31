@@ -21,6 +21,13 @@ public class ExerciseForReps extends ExerciseImpl {
         return exerciseDescription.toString();
     }
 
+    @Override
+    public int getTimeRemainingInSeconds(){
+        return 0;
+    }
+
+    @Override
+    public boolean hasTimer(){return false;}
 
     // -----------------------------------------------
     // For parcelling this class

@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.controllers;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,9 +9,9 @@ import android.widget.LinearLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.myapplication.R;
 import com.example.myapplication.logic.exercise.ExerciseForReps;
 import com.example.myapplication.logic.exercise.ExerciseForTime;
-import com.example.myapplication.logic.exercise.ExerciseImpl;
 import com.example.myapplication.logic.workout.Workout;
 import com.example.myapplication.logic.workout.WorkoutImpl;
 
@@ -32,8 +32,8 @@ public class WorkoutSelectorActivity extends AppCompatActivity {
         //Temporary hardcoding of workouts list, this will be filled from user created workouts later.
         Workout tmpWorkout = new WorkoutImpl("Anton");
         tmpWorkout.addExercise(new ExerciseForReps("Push Up", 5)).addExercise(new ExerciseForReps("Burpee", 15))
-                .addExercise(new ExerciseForTime("Plank1", 60)).addExercise(new ExerciseForTime("Plank2",40))
-                .addExercise(new ExerciseForTime("Plank3", 21)).addExercise(new ExerciseForTime("Plank4", 120));
+                .addExercise(new ExerciseForTime("Plank1", 10)).addExercise(new ExerciseForTime("Plank2",5))
+                .addExercise(new ExerciseForTime("Plank3", 21)).addExercise(new ExerciseForTime("Plank4", 15));
         workouts.add(tmpWorkout);
 
         tmpWorkout = new WorkoutImpl("Marianne");
