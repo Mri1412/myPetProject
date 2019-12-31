@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -13,8 +14,11 @@ import com.example.myapplication.logic.workout.Workout;
 import com.example.myapplication.logic.workout.WorkoutImpl;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class WorkoutSelectorActivity extends AppCompatActivity {
+
+    List<Workout> workouts = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,43 +27,37 @@ public class WorkoutSelectorActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbarWorkoutSelector);
         setSupportActionBar(toolbar);
 
-        //create buttons etc. from workouts
-        onClickWorkoutButton(R.id.workoutButton1, 0);
-        onClickWorkoutButton(R.id.workoutButton2, 1);
+        //Temporary hardcoding of workouts list, this will be filled from user created workouts later.
+        Workout tmpWorkout = new WorkoutImpl("Anton");
+        tmpWorkout.addExercise(new ExerciseImpl("Push Up")).addExercise(new ExerciseImpl("Burpee"))
+                .addExercise(new ExerciseImpl("Plank1")).addExercise(new ExerciseImpl("Plank2"))
+                .addExercise(new ExerciseImpl("Plank3")).addExercise(new ExerciseImpl("Plank4"))
+                .addExercise(new ExerciseImpl("Plank5")).addExercise(new ExerciseImpl("Plank6"))
+                .addExercise(new ExerciseImpl("Plank7"));
+        workouts.add(tmpWorkout);
+        tmpWorkout = new WorkoutImpl("Marianne");
+        tmpWorkout.addExercise(new ExerciseImpl("Sit up")).addExercise(new ExerciseImpl("Jumping Jack"))
+                .addExercise(new ExerciseImpl("Squat"));
+        workouts.add(tmpWorkout);
+
+        for(Workout workout : workouts){
+            addWorkoutButton(workout);
+        }
     }
 
-    private void onClickWorkoutButton(int buttonId, final int workoutId) {
-        Button button = findViewById(buttonId);
-        String workoutName = this.getWorkoutFromSelector(workoutId).getWorkoutName();
-        button.setText(workoutName);
+    private void addWorkoutButton(final Workout workout) {
+        LinearLayout layout = findViewById(R.id.workout_selector_layout);
+        Button button = new Button(this);
+        button.setText(workout.getWorkoutName());
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(WorkoutSelectorActivity.this, WorkoutOverviewActivity.class);
-                intent.putExtra("workoutId", workoutId);
+                intent.putExtra("Workout", workout);
                 startActivity(intent);
             }
         });
-
+        layout.addView(button);
     }
-
-    public Workout getWorkoutFromSelector(int workoutId) {
-        System.out.println("workoud id:");
-        System.out.println(workoutId);
-        switch (workoutId) {
-            case 0:
-                Workout workout1 = new WorkoutImpl("Anton");
-                workout1.addExercise(new ExerciseImpl("Push Up")).addExercise(new ExerciseImpl("Burpee")).addExercise(new ExerciseImpl("Plank1")).addExercise(new ExerciseImpl("Plank2")).addExercise(new ExerciseImpl("Plank3")).addExercise(new ExerciseImpl("Plank4")).addExercise(new ExerciseImpl("Plank5")).addExercise(new ExerciseImpl("Plank6")).addExercise(new ExerciseImpl("Plank7"));
-                return workout1;
-            case 1:
-                Workout workout2 = new WorkoutImpl("Marianne");
-                workout2.addExercise(new ExerciseImpl("Sit up")).addExercise(new ExerciseImpl("Jumping Jack")).addExercise(new ExerciseImpl("Squat"));
-                return workout2;
-            default:
-                throw new RuntimeException("Unknown workout selected");
-        }
-    }
-
-
 
 }

@@ -14,6 +14,8 @@ import com.example.myapplication.logic.workout.Workout;
 
 public class WorkoutOverviewActivity extends AppCompatActivity {
 
+    Workout workout;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout_overview);
@@ -22,9 +24,8 @@ public class WorkoutOverviewActivity extends AppCompatActivity {
         Intent intent = getIntent();
         final int workoutId = intent.getIntExtra("workoutId", 0);
 
-        // TEMP get workout
-        WorkoutSelectorActivity workoutList = new WorkoutSelectorActivity();
-        Workout workout = workoutList.getWorkoutFromSelector(workoutId);
+        // get workout from arguments
+        workout = getIntent().getParcelableExtra("Workout");
         String workoutName = workout.getWorkoutName();
 
         // Toolbar
@@ -47,7 +48,7 @@ public class WorkoutOverviewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(WorkoutOverviewActivity.this, WorkoutActivity.class);
-                intent.putExtra("workoutId", workoutId);
+                intent.putExtra("Workout", workout);
                 startActivity(intent);
             }
         });

@@ -36,9 +36,8 @@ public class WorkoutActivity extends AppCompatActivity {
         Intent intent = getIntent();
         int workoutId = intent.getIntExtra("workoutId", 0);
 
-        // TEMP get workout from workout selector activity
-        WorkoutSelectorActivity workoutList = new WorkoutSelectorActivity();
-        workout = workoutList.getWorkoutFromSelector(workoutId);
+        //get workout from arguments
+        workout = getIntent().getParcelableExtra("Workout");
 
         workout.startWorkout();
 

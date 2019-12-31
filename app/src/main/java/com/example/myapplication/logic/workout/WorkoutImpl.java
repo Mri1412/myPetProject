@@ -1,5 +1,8 @@
 package com.example.myapplication.logic.workout;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.example.myapplication.logic.exercise.Exercise;
 import java.util.ArrayList; // import the ArrayList class
 import java.util.List;
@@ -75,4 +78,38 @@ public class WorkoutImpl implements Workout {
         }
         return exerciseNames;
     }
+
+    // -----------------------------------------------
+    // For parcelling this class
+    //------------------------------------------------
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(workoutName);
+        dest.writeInt(currentExerciseIndex);
+        dest.writeList(exercises);
+    }
+
+    @SuppressWarnings("unchecked")
+    public WorkoutImpl(Parcel src){
+        workoutName = src.readString();
+        currentExerciseIndex = src.readInt();
+        exercises = src.readArrayList(Exercise.class.getClassLoader());
+    }
+
+    @Override
+    public int describeContents() {
+        return hashCode();
+    }
+
+    public static final Parcelable.Creator<WorkoutImpl> CREATOR
+            = new Parcelable.Creator<WorkoutImpl>() {
+        public WorkoutImpl createFromParcel(Parcel in) {
+            return new WorkoutImpl(in);
+        }
+
+        public WorkoutImpl[] newArray(int size) {
+            return new WorkoutImpl[size];
+        }
+    };
 }

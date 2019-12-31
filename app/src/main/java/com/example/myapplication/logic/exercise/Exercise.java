@@ -1,5 +1,7 @@
 package com.example.myapplication.logic.exercise;
 
-public interface Exercise {
+import android.os.Parcelable;
+
+public interface Exercise extends Parcelable {
     String getName();
 }

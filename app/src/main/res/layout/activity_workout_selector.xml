@@ -13,16 +13,16 @@
         app:popupTheme="@style/AppTheme.PopupOverlay"
         app:titleTextColor="@android:color/white" />
 
-    <Button
-        android:id="@+id/workoutButton1"
+    <ScrollView
+        android:id="@+id/workout_selector_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/workout_button_1" />
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/workoutButton2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/workout_button_2" />
+        <LinearLayout
+            android:id="@+id/workout_selector_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
 
 </LinearLayout>
