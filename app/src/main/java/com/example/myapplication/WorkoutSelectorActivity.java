@@ -11,7 +11,6 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.example.myapplication.logic.exercise.ExerciseForReps;
 import com.example.myapplication.logic.exercise.ExerciseForTime;
-import com.example.myapplication.logic.exercise.ExerciseImpl;
 import com.example.myapplication.logic.workout.Workout;
 import com.example.myapplication.logic.workout.WorkoutImpl;
 
@@ -51,6 +50,7 @@ public class WorkoutSelectorActivity extends AppCompatActivity {
         LinearLayout layout = findViewById(R.id.workout_selector_layout);
         Button button = new Button(this);
         button.setText(workout.getWorkoutName());
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
