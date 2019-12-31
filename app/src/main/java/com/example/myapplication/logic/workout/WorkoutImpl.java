@@ -13,6 +13,7 @@ public class WorkoutImpl implements Workout {
     private ArrayList<Exercise> exercises = new ArrayList<>();
     private String workoutName;
     private int currentExerciseIndex;
+    boolean isFinished = false;
 
 
     /* Constructor */
@@ -47,6 +48,11 @@ public class WorkoutImpl implements Workout {
     @Override
     public void finishWorkout() {
 
+    }
+
+    @Override
+    public boolean isFinished() {
+        return isFinished;
     }
 
     @Override

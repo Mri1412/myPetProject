@@ -10,6 +10,7 @@ public interface Workout extends Parcelable {
     Exercise getCurrentExercise();
     void startWorkout();
     void finishWorkout();
+    boolean isFinished();
     boolean hasNextExercise();
     Workout addExercise(Exercise exercise);
     String getWorkoutName();

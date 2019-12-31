@@ -22,8 +22,6 @@ public class WorkoutActivity extends AppCompatActivity {
     long timerTime = 0, timerStartTime = 0;
     long exerciseTime = 0, exerciseStartTime = 0;
 
-    ExecutorService timerService = Executors.newFixedThreadPool(1);
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +36,7 @@ public class WorkoutActivity extends AppCompatActivity {
 
         showNewExercise();
         timerStartTime = SystemClock.uptimeMillis();
-        timerService.execute(timerLoop);
+        runOnUiThread(timerLoop);
 
         ConstraintLayout screen = findViewById(R.id.workout_screen);
         screen.setOnClickListener(new View.OnClickListener() {
@@ -68,7 +66,7 @@ public class WorkoutActivity extends AppCompatActivity {
             workoutScreen.setClickable(false);
 
             exerciseStartTime = SystemClock.uptimeMillis();
-            timerService.execute(exerciseCountdownLoop);
+            exerciseTimeView.post(exerciseCountdownLoop);
         }else{
             exerciseTimeView.setVisibility(View.INVISIBLE);
             workoutScreen.setClickable(true);
@@ -76,21 +74,11 @@ public class WorkoutActivity extends AppCompatActivity {
     }
 
     private void showFinishScreen() {
-        timerService.shutdownNow(); // This stops the timer from running, by cancelling any running tasks
-
         TextView textName = findViewById(R.id.workoutContentText);
         textName.setText("VICTORY!");
 
         TextView exerciseTimeView = findViewById(R.id.workoutTimeRemainingText);
         exerciseTimeView.setVisibility(View.INVISIBLE);
-
-        while(!timerService.isTerminated()) {
-            try {
-                Thread.sleep(100);
-            } catch (Exception e) {
-                //The point is to wait until the timerService is shut down, just swallow the exception
-            }
-        }
     }
 
     private Runnable exerciseCountdownLoop = new Runnable() {
@@ -107,8 +95,9 @@ public class WorkoutActivity extends AppCompatActivity {
             if(exerciseTime > 0){
                 timerText.setText(getString(R.string.exercise_timer, minutes, seconds));
 
-                if(!timerService.isTerminated() && !timerService.isShutdown()){
-                    timerService.execute(exerciseCountdownLoop);}
+                if(!workout.isFinished()){
+                    timerText.post(exerciseCountdownLoop);
+                }
             } else{
                 timerText.setText(getString(R.string.exercise_timer, 0, 0));
 
@@ -129,8 +118,8 @@ public class WorkoutActivity extends AppCompatActivity {
             TextView timerText = findViewById(R.id.timerText);
             timerText.setText(getString(R.string.workout_timer, minutes, seconds));
 
-            if(!timerService.isTerminated() && !timerService.isShutdown()){
-                timerService.execute(timerLoop);
+            if(!workout.isFinished()){
+                timerText.post(timerLoop);
             }
         }
     };
