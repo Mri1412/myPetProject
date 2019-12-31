@@ -47,7 +47,7 @@ public class WorkoutImpl implements Workout {
 
     @Override
     public void finishWorkout() {
-
+        isFinished = true;
     }
 
     @Override
