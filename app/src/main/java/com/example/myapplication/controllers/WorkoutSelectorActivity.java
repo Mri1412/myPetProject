@@ -51,6 +51,7 @@ public class WorkoutSelectorActivity extends AppCompatActivity {
         LinearLayout layout = findViewById(R.id.workout_selector_layout);
         Button button = new Button(this);
         button.setText(workout.getWorkoutName());
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
