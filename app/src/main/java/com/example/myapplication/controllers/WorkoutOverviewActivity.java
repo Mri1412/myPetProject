@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.myapplication.R;
-import com.example.myapplication.logic.workout.Workout;
+import com.example.myapplication.models.workout.Workout;
 
 public class WorkoutOverviewActivity extends AppCompatActivity {
 

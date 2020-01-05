@@ -1,9 +1,9 @@
-package com.example.myapplication.logic.workout;
+package com.example.myapplication.models.workout;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.example.myapplication.logic.exercise.Exercise;
+import com.example.myapplication.models.exercise.Exercise;
 import java.util.ArrayList; // import the ArrayList class
 import java.util.List;
 

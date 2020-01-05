@@ -1,4 +1,4 @@
-package com.example.myapplication.logic.exercise;
+package com.example.myapplication.models.exercise;
 
 import android.os.Parcelable;
 

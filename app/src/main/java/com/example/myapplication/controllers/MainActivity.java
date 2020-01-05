@@ -4,8 +4,15 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.myapplication.R;
+import com.example.myapplication.models.viewmodels.WorkoutViewModel;
+import com.example.myapplication.models.exercise.ExerciseForReps;
+import com.example.myapplication.models.exercise.ExerciseForTime;
+import com.example.myapplication.models.workout.Workout;
+import com.example.myapplication.models.workout.WorkoutImpl;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.ViewModelProviders;
 
 import android.view.View;
 import android.view.Menu;
@@ -31,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        loadWorkouts();
     }
 
     @Override
@@ -53,5 +62,21 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void loadWorkouts(){
+        WorkoutViewModel model = ViewModelProviders.of(this).get(WorkoutViewModel.class);
+
+        //Temporary hardcoding of workouts list, this will be filled from user created workouts later.
+        Workout tmpWorkout = new WorkoutImpl("Anton");
+        tmpWorkout.addExercise(new ExerciseForReps("Push Up", 5)).addExercise(new ExerciseForReps("Burpee", 15))
+                .addExercise(new ExerciseForTime("Plank1", 10)).addExercise(new ExerciseForTime("Plank2",5))
+                .addExercise(new ExerciseForTime("Plank3", 21)).addExercise(new ExerciseForTime("Plank4", 15));
+        model.addWorkout(tmpWorkout);
+
+        tmpWorkout = new WorkoutImpl("Marianne");
+        tmpWorkout.addExercise(new ExerciseForReps("Sit up", 10)).addExercise(new ExerciseForReps("Jumping Jack", 40))
+                .addExercise(new ExerciseForReps("Squat", 20));
+        model.addWorkout(tmpWorkout);
     }
 }
