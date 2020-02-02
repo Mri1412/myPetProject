@@ -39,6 +39,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button buttonWorkoutHistory = findViewById(R.id.workoutHistoryButton);
+        buttonWorkoutHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, WorkoutHistoryActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
         loadWorkouts();
     }
 

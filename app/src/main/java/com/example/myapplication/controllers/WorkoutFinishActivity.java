@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import com.example.myapplication.R;
 
 public class WorkoutFinishActivity extends AppCompatActivity {
@@ -15,6 +17,10 @@ public class WorkoutFinishActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout_finish);
+
+        // Toolbar
+        Toolbar toolbar = findViewById(R.id.toolbarWorkoutFinish);
+        setSupportActionBar(toolbar);
 
         show_time();
 
