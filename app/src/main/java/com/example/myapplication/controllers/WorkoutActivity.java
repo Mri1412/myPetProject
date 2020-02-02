@@ -1,5 +1,6 @@
 package com.example.myapplication.controllers;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.View;
@@ -16,8 +17,8 @@ import com.example.myapplication.models.workout.Workout;
 public class WorkoutActivity extends AppCompatActivity {
 
     private Workout workout;
-    long timerTime = 0, timerStartTime = 0;
-    long exerciseTime = 0, exerciseStartTime = 0;
+    private long timerTime = 0, timerStartTime = 0;
+    private long exerciseTime = 0, exerciseStartTime = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,11 +72,17 @@ public class WorkoutActivity extends AppCompatActivity {
     }
 
     private void showFinishScreen() {
+        /*
         TextView textName = findViewById(R.id.workoutContentText);
         textName.setText("VICTORY!");
 
         TextView exerciseTimeView = findViewById(R.id.workoutTimeRemainingText);
         exerciseTimeView.setVisibility(View.INVISIBLE);
+        */
+
+        Intent intent = new Intent(WorkoutActivity.this, WorkoutFinishActivity.class);
+        intent.putExtra("timerTime", timerTime);
+        startActivity(intent);
     }
 
     private Runnable exerciseCountdownLoop = new Runnable() {
